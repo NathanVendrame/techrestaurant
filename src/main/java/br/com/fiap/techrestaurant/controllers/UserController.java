@@ -1,6 +1,6 @@
 package br.com.fiap.techrestaurant.controllers;
 
-import br.com.fiap.techrestaurant.entities.Login;
+import br.com.fiap.techrestaurant.dtos.LoginDto;
 import br.com.fiap.techrestaurant.entities.User;
 import br.com.fiap.techrestaurant.services.UserService;
 import org.springframework.http.HttpStatus;
@@ -60,8 +60,8 @@ public class UserController {
 
     @GetMapping("/validate")
     public ResponseEntity<Boolean> validateUser(
-            @RequestBody Login login) {
-        Boolean valid = this.userService.validateUser(login);
+            @RequestBody LoginDto loginDto) {
+        Boolean valid = this.userService.validateUser(loginDto);
         return ResponseEntity.ok(valid);
     }
 }

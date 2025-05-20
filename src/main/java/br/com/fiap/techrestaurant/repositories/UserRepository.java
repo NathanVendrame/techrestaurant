@@ -1,6 +1,6 @@
 package br.com.fiap.techrestaurant.repositories;
 
-import br.com.fiap.techrestaurant.entities.Login;
+import br.com.fiap.techrestaurant.dtos.LoginDto;
 import br.com.fiap.techrestaurant.entities.User;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;
@@ -74,11 +74,11 @@ public class UserRepository {
                 .update();
     }
 
-    public Boolean validateUser(Login login) {
+    public Boolean validateUser(LoginDto loginDto) {
         return this.jdbcClient
                 .sql("SELECT 1 FROM users WHERE login = :login AND password = :password")
-                .param("login", login.getLogin())
-                .param("password", login.getPassword())
+                .param("login", loginDto.getLogin())
+                .param("password", loginDto.getPassword())
                 .query(Boolean.class)
                 .optional()
                 .orElse(false);

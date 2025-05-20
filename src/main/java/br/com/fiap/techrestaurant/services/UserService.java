@@ -1,6 +1,6 @@
 package br.com.fiap.techrestaurant.services;
 
-import br.com.fiap.techrestaurant.entities.Login;
+import br.com.fiap.techrestaurant.dtos.LoginDto;
 import br.com.fiap.techrestaurant.entities.User;
 import br.com.fiap.techrestaurant.repositories.UserRepository;
 import org.springframework.stereotype.Service;
@@ -45,8 +45,8 @@ public class UserService {
         Assert.state(delete == 1, "Veiculo nao encontrado");
     }
 
-    public Boolean validateUser(Login login) {
-        return this.userRepository.validateUser(login);
+    public Boolean validateUser(LoginDto loginDto) {
+        return this.userRepository.validateUser(loginDto);
     }
 
     private static void setCurrentDate(User user) {

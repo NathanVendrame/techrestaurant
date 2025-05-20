@@ -1,4 +1,4 @@
-package br.com.fiap.techrestaurant.entities;
+package br.com.fiap.techrestaurant.dtos;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -13,7 +13,7 @@ import lombok.AllArgsConstructor;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-public class Login {
+public class LoginDto {
 
     private String login;
 
